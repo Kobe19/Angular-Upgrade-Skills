@@ -1,0 +1,9 @@
+<div>
+  <h2>Authentification</h2>
+  <button class="btn btn-success" (click)="onSignIn()" *ngIf="!isConnected">
+    Se connecter
+  </button>
+  <button class="btn btn-danger" (click)="onSignOff()" *ngIf="isConnected">
+    Se déconnecter
+  </button>
+</div>

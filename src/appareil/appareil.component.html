@@ -1,0 +1,38 @@
+<li
+  [ngClass]="{
+    'list-group-item': true,
+    'list-group-item-success': appareilStatus === 'allumé',
+    'list-group-item-danger': appareilStatus === 'éteint'
+  }"
+>
+  <!-- // carré rouge qui s'ffiche uniquement si l'appareil est eteint : test de ngIf -->
+  <!-- <div
+    style="width: 18px; height: 18px; background-color: red;"
+    *ngIf="appareilStatus === 'éteint'"
+  ></div> -->
+
+  <h4 [ngStyle]="{ color: getColor() }">
+    Appareil : {{ appareilName }} -- Status : {{ getStatus() }}
+  </h4>
+
+  <button
+    class="btn btn-success"
+    (click)="onSwitchOn()"
+    [disabled]="appareilStatus == 'allumé'"
+  >
+    allumer
+  </button>
+  <button
+    class="btn btn-danger ms-1"
+    (click)="onSwitchOff()"
+    [disabled]="appareilStatus == 'éteint'"
+  >
+    éteindre
+  </button>
+  <button class="btn btn-secondary float-end ms-1" [routerLink]="[id]">
+    Details
+  </button>
+
+  <!-- // Ici dans ce input on teste le two way binding par le ngModel en utilisant une variable existante -->
+  <!-- <input type="text" class="form-control" [(ngModel)]="appareilName" /> -->
+</li>
